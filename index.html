@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FIFA World Cup Betting Intelligence</title>
+    <meta
+      name="description"
+      content="Professional FIFA World Cup sports betting history dashboard with historical odds patterns, 2022 market analysis, and responsible wager guardrails."
+    >
+    <link rel="preload" href="assets/stadium-analytics-hero.png" as="image">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <img class="hero__image" src="assets/stadium-analytics-hero.png" alt="Football stadium analytics command center">
+      <div class="hero__shade"></div>
+      <nav class="topbar" aria-label="Dashboard sections">
+        <a class="brand" href="#overview">FIFA Betting Intel</a>
+        <div class="navlinks">
+          <a href="#history">History</a>
+          <a href="#market">2022 Market</a>
+          <a href="#playbook">Wager Patterns</a>
+          <a href="REPORT.md">Report</a>
+        </div>
+      </nav>
+      <section id="overview" class="hero__content">
+        <p class="eyebrow">World Cup odds history 1966-2022</p>
+        <h1>Market patterns for disciplined FIFA World Cup wagers.</h1>
+        <p class="hero__copy">
+          A professional dashboard combining historical outright prices, favorite performance,
+          2022 FIFA ranking data, and a risk-first betting playbook.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#playbook">Open playbook</a>
+          <a class="button button--ghost" href="#history">Study history</a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="kpi-strip" aria-label="Key metrics">
+        <article class="metric">
+          <span class="metric__label">Favorite win rate</span>
+          <strong id="favoriteWinRate">--</strong>
+          <small>Since 1966 sample</small>
+        </article>
+        <article class="metric">
+          <span class="metric__label">Median winner price</span>
+          <strong id="medianWinnerOdds">--</strong>
+          <small>Fractional odds</small>
+        </article>
+        <article class="metric">
+          <span class="metric__label">Best champion price</span>
+          <strong id="longestWinnerOdds">--</strong>
+          <small id="longestWinnerTeam">--</small>
+        </article>
+        <article class="metric">
+          <span class="metric__label">Top-4 market winners</span>
+          <strong id="topFourWinnerRate">--</strong>
+          <small>Outright champions</small>
+        </article>
+      </section>
+
+      <section id="history" class="section">
+        <div class="section__heading">
+          <p class="eyebrow">Historical edge map</p>
+          <h2>Favorites are powerful, but overpriced.</h2>
+          <p>
+            The outright favorite has won only a minority of World Cups in the modern odds sample.
+            Champions usually came from the elite contender band rather than true longshot territory.
+          </p>
+        </div>
+        <div class="chart-shell">
+          <div class="chart-header">
+            <div>
+              <h3>Champion price by tournament</h3>
+              <p>Bar height reflects fractional odds. Gold bars mark years when the favorite won.</p>
+            </div>
+            <div class="legend">
+              <span><i class="legend-dot legend-dot--gold"></i>Favorite won</span>
+              <span><i class="legend-dot legend-dot--red"></i>Contender won</span>
+              <span><i class="legend-dot legend-dot--cyan"></i>Longshot won</span>
+            </div>
+          </div>
+          <div id="historyBars" class="bars" aria-label="Historical World Cup winner odds bars"></div>
+        </div>
+      </section>
+
+      <section class="section section--split">
+        <div class="insight-panel">
+          <p class="eyebrow">Primary read</p>
+          <h2>Do not confuse favorite with best wager.</h2>
+          <p>
+            Brazil has repeatedly started as favorite without converting. The better historical
+            zone is the short contender cluster: second to fourth favorite, strong ranking,
+            balanced squad, and a path that avoids market overreaction.
+          </p>
+        </div>
+        <div class="odds-grid" id="oddsBands" aria-label="Winner odds band summary"></div>
+      </section>
+
+      <section id="market" class="section">
+        <div class="section__heading">
+          <p class="eyebrow">Qatar 2022 case study</p>
+          <h2>FIFA ranking versus sportsbook price.</h2>
+          <p>
+            The 2022 board shows why market rank, FIFA ranking, and tournament ceiling need to be
+            judged together. Argentina was a cleaner contender profile than the shortest favorite.
+          </p>
+        </div>
+        <div class="toolbar" role="group" aria-label="Market filters">
+          <button class="filter is-active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="contender">Contenders</button>
+          <button class="filter" type="button" data-filter="longshot">Longshots</button>
+          <button class="filter" type="button" data-filter="miss">Misses</button>
+        </div>
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>Team</th>
+                <th>FIFA Rank</th>
+                <th>Odds</th>
+                <th>Implied</th>
+                <th>Finish</th>
+                <th>Signal</th>
+              </tr>
+            </thead>
+            <tbody id="teamTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="playbook" class="section playbook">
+        <div class="section__heading">
+          <p class="eyebrow">Pattern playbook</p>
+          <h2>Wager framework, not prediction theater.</h2>
+          <p>
+            Use these patterns as a decision layer before staking. Price, probability, and bankroll
+            discipline matter more than picking the most famous team.
+          </p>
+        </div>
+        <div class="pattern-grid">
+          <article class="pattern">
+            <span class="pattern__tag">Pattern 01</span>
+            <h3>Fade the single shortest outright</h3>
+            <p>
+              Favorites won 3 of 15 tournaments in the sample. Convert favorite conviction into
+              smaller positions such as group winner, semi-final reach, or no-bet when price is thin.
+            </p>
+          </article>
+          <article class="pattern">
+            <span class="pattern__tag">Pattern 02</span>
+            <h3>Target the 2nd-4th favorite band</h3>
+            <p>
+              This band captured many champions while avoiding the heaviest public-team premium.
+              Require elite ranking, squad depth, and a route that does not force early coin-flips.
+            </p>
+          </article>
+          <article class="pattern">
+            <span class="pattern__tag">Pattern 03</span>
+            <h3>Use longshots for place markets</h3>
+            <p>
+              Croatia and Morocco showed that deep runs can come from 33/1 to 200/1 teams.
+              Outright tickets remain fragile; top-4, group qualification, and draw-no-bet markets
+              fit the asymmetry better.
+            </p>
+          </article>
+          <article class="pattern">
+            <span class="pattern__tag">Pattern 04</span>
+            <h3>Price the ranking gap</h3>
+            <p>
+              If a team is top 10 by FIFA points but priced outside the contender pack, inspect
+              injuries, age curve, and draw. If nothing explains the gap, the market may be slow.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section risk">
+        <div>
+          <p class="eyebrow">Risk policy</p>
+          <h2>Responsible wager guardrails.</h2>
+        </div>
+        <ul class="risk-list">
+          <li>Stake in fixed units and cap total tournament exposure before the opening match.</li>
+          <li>Convert odds to implied probability, then bet only when your estimate clears the price.</li>
+          <li>Avoid chasing after shocks; World Cup variance is real and emotionally expensive.</li>
+          <li>Never treat historical patterns as guarantees. This dashboard is educational analysis.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Sources:
+        <a href="https://www.theguardian.com/football/2022/dec/14/which-team-won-the-world-cup-with-the-longest-pre-tournament-odds">The Guardian odds history</a>,
+        <a href="https://www.si.com/betting/2022/11/16/odds-groups-2022-world-cup">Sports Illustrated 2022 odds</a>,
+        <a href="https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1982-2022-italy-argentina-germany-brazil-france-spain">FIFA champions archive</a>,
+        <a href="https://inside.fifa.com/en/fifa-world-ranking/men/news/en/news/brazil-pull-away-from-the-pack">FIFA ranking release</a>.
+      </p>
+      <p>Not betting advice. For research, education, and disciplined risk review only.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
